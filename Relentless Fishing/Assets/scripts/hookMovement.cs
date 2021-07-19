@@ -10,9 +10,6 @@ public class hookMovement : MonoBehaviour
     Vector3 direction;
 
     public float speed;
-    private float timeToDestroyFish = 0.1f;
-
-    GameObject fish;
 
     public void Update()
     {
@@ -37,12 +34,16 @@ public class hookMovement : MonoBehaviour
 
     public void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        fish = GameObject.FindWithTag("fish");
+        GameObject[] fish = GameObject.FindGameObjectsWithTag("fish");
 
         if (hit.transform.tag == "fish")
         {
-            Debug.Log("hit");
-            Destroy(fish, timeToDestroyFish);
+
+            for (int i = 0; i < fish.Length; i++)
+            {
+
+                Destroy(fish[i]);
+            }
         }
     }
 }
