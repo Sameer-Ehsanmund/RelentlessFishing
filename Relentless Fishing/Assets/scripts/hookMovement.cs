@@ -11,7 +11,7 @@ public class hookMovement : MonoBehaviour
 
     public float speed;
 
-    public GameObject fishBeingCollected;
+    public GameObject FCS;
 
     public void Update()
     {
@@ -42,7 +42,7 @@ public class hookMovement : MonoBehaviour
         if (hit.transform.tag == "fish")
         {
 
-            fishCollectionSystem fishCollected = fishBeingCollected.GetComponent<fishCollectionSystem>().fishCollected += 1;
+            FCS.GetComponent<fishCollectionSystem>().fishCollected += 1;
             Destroy(hit.gameObject);
         }
     }
