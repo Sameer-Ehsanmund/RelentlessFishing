@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class fishCollectionSystem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public int fishCollected = 0;
+
+    void OnGUI()
     {
-        
+
+        GUI.color = Color.black;
+        GUI.Label(new Rect(20, 20, 100, 50), ("Total Fish: " + fishCollected));
     }
 }
