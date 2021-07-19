@@ -34,16 +34,13 @@ public class hookMovement : MonoBehaviour
 
     public void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        GameObject[] fish = GameObject.FindGameObjectsWithTag("fish");
 
+        GameObject fish = GameObject.FindWithTag("fish");
+   
         if (hit.transform.tag == "fish")
         {
 
-            for (int i = 0; i < fish.Length; i++)
-            {
-
-                Destroy(fish[i]);
-            }
+            Destroy(hit.gameObject);
         }
     }
 }
