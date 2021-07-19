@@ -5,18 +5,14 @@ using UnityEngine;
 public class hookMovement : MonoBehaviour
 {
 
-    private CharacterController cc;
+    public CharacterController cc;
 
-    public Vector3 direction;
+    Vector3 direction;
 
     public float speed;
-    private float timeToDestroyFish = 1f;
+    private float timeToDestroyFish = 0.1f;
 
-    void Start()
-    {
-        
-
-    }
+    GameObject fish;
 
     public void Update()
     {
@@ -41,11 +37,12 @@ public class hookMovement : MonoBehaviour
 
     public void OnControllerColliderHit(ControllerColliderHit hit)
     {
+        fish = GameObject.FindWithTag("fish");
 
         if (hit.transform.tag == "fish")
         {
-
-            Destroy(gameObject.tag == "fish", timeToDestroyFish);
+            Debug.Log("hit");
+            Destroy(fish, timeToDestroyFish);
         }
     }
 }
