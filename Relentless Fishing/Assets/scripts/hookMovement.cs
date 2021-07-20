@@ -44,7 +44,7 @@ public class hookMovement : MonoBehaviour
         if (collision.transform.tag == "fish")
         {
 
-            Debug.Log("hitting");
+            //Debug.Log("hitting");
             Destroy(collision.gameObject);
             FCS.GetComponent<fishCollectionSystem>().fishCollected += 1;
         }
