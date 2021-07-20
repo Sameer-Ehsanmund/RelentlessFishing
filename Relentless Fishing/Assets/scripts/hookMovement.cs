@@ -5,44 +5,47 @@ using UnityEngine;
 public class hookMovement : MonoBehaviour
 {
 
-    public CharacterController cc;
+    float mZCoord;
 
-    Vector3 direction;
-
-    public float speed;
+    Vector3 mOffset;
 
     public GameObject FCS;
 
-    public void Update()
+    void Update()
     {
-
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-
-        direction = new Vector3(horizontal, vertical, 0f).normalized;
-
-        if (direction.magnitude >= 0.1f)
+        if (Input.GetMouseButtonDown(0))
         {
-
-            cc.Move(direction * speed * Time.deltaTime);
+            mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
+            mOffset = gameObject.transform.position - GetMouseAsWorldPoint();
         }
 
-        if (direction.magnitude <= 0.1f)
+        if (Input.GetMouseButton(0))
         {
 
-            cc.Move(direction * speed * Time.deltaTime);
+            transform.position = new Vector3(GetMouseAsWorldPoint().x + mOffset.x, GetMouseAsWorldPoint().y + mOffset.y, transform.position.z);
         }
     }
 
-    public void OnControllerColliderHit(ControllerColliderHit hit)
+    Vector3 GetMouseAsWorldPoint()
+    {
+
+        Vector3 mousePoint = Input.mousePosition;
+
+        mousePoint.z = mZCoord;
+
+        return Camera.main.ScreenToWorldPoint(mousePoint);
+    }
+
+    public void OnCollisionEnter(Collision collision)
     {
 
         GameObject fish = GameObject.FindWithTag("fish");
-   
-        if (hit.transform.tag == "fish")
+
+        if (collision.transform.tag == "fish")
         {
 
-            Destroy(hit.gameObject);
+            Debug.Log("hitting");
+            Destroy(collision.gameObject);
             FCS.GetComponent<fishCollectionSystem>().fishCollected += 1;
         }
     }
