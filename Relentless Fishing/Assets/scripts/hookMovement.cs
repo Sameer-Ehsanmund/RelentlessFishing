@@ -42,8 +42,8 @@ public class hookMovement : MonoBehaviour
         if (hit.transform.tag == "fish")
         {
 
-            FCS.GetComponent<fishCollectionSystem>().fishCollected += 1;
             Destroy(hit.gameObject);
+            FCS.GetComponent<fishCollectionSystem>().fishCollected += 1;
         }
     }
 }
