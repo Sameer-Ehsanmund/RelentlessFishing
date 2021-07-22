@@ -13,8 +13,10 @@ public class hookMovement : MonoBehaviour
 
     void Update()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
+
             mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
             mOffset = gameObject.transform.position - GetMouseAsWorldPoint();
         }
@@ -30,9 +32,7 @@ public class hookMovement : MonoBehaviour
     {
 
         Vector3 mousePoint = Input.mousePosition;
-
         mousePoint.z = mZCoord;
-
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
 

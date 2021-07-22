@@ -18,7 +18,7 @@ public class buttonAnimations : MonoBehaviour
         anim.enabled = true;
         startBut.active = false;
         gameText.active = false;
-        
+        FCS.GetComponent<fishCollectionSystem>().startingCoroutine();        
         StartCoroutine(fishcollectionLabel());
     }
 

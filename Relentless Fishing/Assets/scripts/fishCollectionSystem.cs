@@ -8,18 +8,32 @@ public class fishCollectionSystem : MonoBehaviour
 
     public int fishCollected;
 
-    public void Update()
+    bool useGUI = false;
+
+    GUIStyle guiStyle = new GUIStyle();
+
+    public void startingCoroutine()
     {
 
-        OnGUI();
+        StartCoroutine(usingGUI());
+    }
+
+   IEnumerator usingGUI()
+    {
+
+        yield return new WaitForSeconds(4);
+        useGUI = true;
     }
 
     void OnGUI()
     {
 
-        GUI.color = Color.black;
-        GUI.Label(new Rect(20, 20, 100, 50), ("" + fishCollected));
-    }
-        
+        if (useGUI == true)
+        {
 
+            GUI.color = Color.black;
+            guiStyle.fontSize = 30;
+            GUI.Label(new Rect(270, 40, 100, 100), ("" + fishCollected), guiStyle);
+        }           
+    }
 }
