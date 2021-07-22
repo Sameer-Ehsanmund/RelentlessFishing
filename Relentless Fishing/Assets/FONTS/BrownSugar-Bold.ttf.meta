@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 185ea38531f4cc847a6ed63b7db3324f
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Brown Sugar
+  fontNames:
+  - Brown Sugar
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 70c13a0c774fcdf4589a9bb7d3aac250, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
