@@ -2,20 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ROPEMECHANICS : MonoBehaviour
+public class RopeMechanics : MonoBehaviour
 {
 
-    Vector3 mouseWorldPosition;
-    RaycastHit raycastHit;
- 
- void Update()
+    void Start()
     {
-        DestroyTile();
-    }
 
-    void DestroyTile()
-    {
-        mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Debug.DrawLine(transform.position, mouseWorldPosition, Color.red);
+        GetComponent<CharacterJoint>().connectedBody = transform.parent.GetComponent<Rigidbody>();
     }
 }
