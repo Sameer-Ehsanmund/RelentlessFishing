@@ -16,10 +16,10 @@ public class RopeMechanics : MonoBehaviour
     private List<RopeSection> allRopeSections = new List<RopeSection>();
 
     //Rope data
-    private float ropeSectionLength = 1f;
+    private float ropeSectionLength = 2f;
 
-    private void Start()
-    {
+    private void Start() 
+	{
         //Init the line renderer we use to display the rope
         lineRenderer = GetComponent<LineRenderer>();
 
@@ -34,9 +34,9 @@ public class RopeMechanics : MonoBehaviour
             ropeSectionPos.y -= ropeSectionLength;
         }
     }
-
-    private void Update()
-    {
+	
+	private void Update() 
+	{
         //Display the rope with the line renderer
         DisplayRope();
 
