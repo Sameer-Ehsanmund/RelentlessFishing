@@ -8,9 +8,11 @@ public class buttonAnimations : MonoBehaviour
     public Animator anim;
 
     public GameObject startBut;
+    public GameObject pauseBut;
     public GameObject gameText;
     public GameObject fishCollectedText;
     public GameObject FCS;
+    public GameObject Pausepanel;
 
     public void onGameStart()
     {
@@ -27,5 +29,26 @@ public class buttonAnimations : MonoBehaviour
 
         yield return new WaitForSeconds(4);
         fishCollectedText.active = true;
+        pauseBut.active = true;
+    }
+
+    public void onPauseGame()
+    {
+
+        Time.timeScale = 0;
+        Pausepanel.active = true;
+    }
+
+    public void onResumeGame()
+    {
+
+        Pausepanel.active = false;
+        Time.timeScale = 1;       
+    }
+
+    public void onExitGame()
+    {
+
+        Application.Quit();
     }
 }
