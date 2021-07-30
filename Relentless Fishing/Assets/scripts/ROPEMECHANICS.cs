@@ -16,7 +16,7 @@ public class RopeMechanics : MonoBehaviour
     private List<RopeSection> allRopeSections = new List<RopeSection>();
 
     //Rope data
-    private float ropeSectionLength = 2f;
+    private float ropeSectionLength = 5f;
 
     private void Start() 
 	{
