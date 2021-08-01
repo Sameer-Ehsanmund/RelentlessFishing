@@ -15,24 +15,23 @@ public class buttonAnimations : MonoBehaviour
     public GameObject FCS;
     public GameObject Pausepanel;
 
-    public void Start()
+    public void Update()
     {
 
         if (GameObject.FindGameObjectsWithTag("fish").Length == 0)
         {
-
-            Time.timeScale = 0;
+        
             StartCoroutine(onGameWon());
-            Debug.Log("GAME WON  1");
         }
     }
 
     IEnumerator onGameWon()
     {
-
+      
         yield return new WaitForSeconds(1);
-        Debug.Log("GAME WON  2");
-        //gameWONBut.active = true;
+        Time.timeScale = 0;
+        Debug.Log("Game End");
+        gameWONBut.active = true;
     }
 
     public void onGameStart()
