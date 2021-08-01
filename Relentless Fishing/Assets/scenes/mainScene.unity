@@ -1321,6 +1321,7 @@ MonoBehaviour:
   anim: {fileID: 1490590630}
   startBut: {fileID: 1751513871}
   pauseBut: {fileID: 748264589}
+  gameWONBut: {fileID: 619944110}
   gameText: {fileID: 715192689}
   fishCollectedText: {fileID: 386749511}
   FCS: {fileID: 172895114}

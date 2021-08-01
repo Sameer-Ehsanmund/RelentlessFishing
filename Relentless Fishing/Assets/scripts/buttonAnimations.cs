@@ -9,10 +9,31 @@ public class buttonAnimations : MonoBehaviour
 
     public GameObject startBut;
     public GameObject pauseBut;
+    public GameObject gameWONBut;
     public GameObject gameText;
     public GameObject fishCollectedText;
     public GameObject FCS;
     public GameObject Pausepanel;
+
+    public void Start()
+    {
+
+        if (GameObject.FindGameObjectsWithTag("fish").Length == 0)
+        {
+
+            Time.timeScale = 0;
+            StartCoroutine(onGameWon());
+            Debug.Log("GAME WON  1");
+        }
+    }
+
+    IEnumerator onGameWon()
+    {
+
+        yield return new WaitForSeconds(1);
+        Debug.Log("GAME WON  2");
+        //gameWONBut.active = true;
+    }
 
     public void onGameStart()
     {
